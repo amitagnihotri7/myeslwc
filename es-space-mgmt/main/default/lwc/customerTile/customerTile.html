@@ -2,13 +2,17 @@
     <div>
         <lightning-layout vertical-align="center">
             <lightning-layout-item class="slds-padding-around">
-                <lightning-icon icon-name="action:new_note"></lightning-icon>
+                <lightning-icon  
+                    icon-name={icon} 
+                    alternative-text={alttext}>
+                </lightning-icon>
             </lightning-layout-item>
-            <lightning-layout-item>
-                <p>Test2</p>
-                <p>email@test.com</p>
+
+            <lightning-layout-item padding="horizontal-small">
+                <a href="#" alt="">{customer.name}</a>
+                <p>Status: {customer.status}</p>
+                <p>Email: {customer.email}</p>
             </lightning-layout-item>
         </lightning-layout>
-    
     </div>
 </template>
