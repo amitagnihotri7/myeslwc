@@ -1,6 +1,24 @@
-import { LightningElement } from 'lwc';
+import { LightningElement ,wire,api} from 'lwc';
+import getCustomerList from '@salesforce/apex/reservationManagerController.getCustomerList';
 
 export default class CustomerList extends LightningElement {
+
+    @api sObject ='Lead';
+    customers;
+    errorMsg;
+    @wire(getCustomerList,{sObject: '$sObject'})
+    wiredCustomerData({error, data}){
+        if(data)
+        {
+            this.customers = data;
+        }
+        if(error)
+        {
+            this.errorMsg = error;
+        }
+    }
+
+
 
     customers = [
         {
@@ -28,5 +46,7 @@ export default class CustomerList extends LightningElement {
             "Id": "0000002"
         }
     ];
+
+
 
 }

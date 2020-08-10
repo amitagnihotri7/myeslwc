@@ -1,7 +1,4 @@
 public with sharing class customerServices {
-    public customerServices() {
-
-    }
 
     public class Customer
     {
@@ -37,4 +34,5 @@ public with sharing class customerServices {
             if(String.isNotEmpty(custId))
                 this.Id = custId;
         }
+    }
 }
